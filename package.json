@@ -7,7 +7,8 @@
     "build": "pnpm --filter './lib*' build",
     "prepare": "pnpm build",
     "lint:fix": "pnpm --filter '*' lint:fix && prettier . --write",
-    "test": "pnpm --filter './app*' test:ember"
+    "test": "pnpm --filter './app*' test:ember",
+    "test:no-prefix": "pnpm --aggregate-output --reporter=append-only --filter './app*' --reporter-hide-prefix test:ember"
   },
   "keywords": [],
   "author": "NullVoxPopuli",
