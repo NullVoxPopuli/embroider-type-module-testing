@@ -17,6 +17,9 @@ else
 
   npx ember-cli@latest addon $library_name \
       --blueprint @embroider/addon-blueprint --addon-only --skip-git --skip-npm
+
+  manifest_path="$PWD/$library_name/package.json"
+  echo $(jq '.type = "module"' $manifest_path) > $manifest_path
 fi
 
 if [ -d "$PWD/$app_auto_import" ]; then 
@@ -26,6 +29,11 @@ else
 
   npx ember-cli@latest new $app_auto_import \
     --skip-git --skip-npm --embroider
+
+  manifest_path="$PWD/$app_auto_import/package.json"
+  echo $(jq '.scripts["test:ember"] = "ember test --test-port 0"' $manifest_path) > $manifest_path
+
+  ( cd $app_auto_import && pnpm add $library_name )
 fi
 
 if [ -d "$PWD/$app_embroider3" ]; then 
@@ -35,5 +43,14 @@ else
 
   npx ember-cli@latest new $app_embroider3 \
     --skip-git --skip-npm --embroider
+
+  manifest_path="$PWD/$app_embroider3/package.json"
+  echo $(jq '.scripts["test:ember"] = "ember test --test-port 0"' $manifest_path) > $manifest_path
+
+  ( cd $app_embroider3 && pnpm add $library_name )
 fi
 
+
+pnpm install
+pnpm lint:fix
+pnpm prettier . --write

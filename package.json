@@ -6,9 +6,14 @@
   "scripts": {
     "build": "pnpm --filter './lib*' build",
     "prepare": "pnpm build",
+    "lint:fix": "pnpm --filter '*' lint:fix && prettier . --write",
     "test": "pnpm --filter './app*' test:ember"
   },
   "keywords": [],
   "author": "NullVoxPopuli",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.2.4",
+    "prettier-plugin-ember-template-tag": "^1.1.0"
+  }
 }
