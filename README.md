@@ -21,5 +21,5 @@ In the root of the repo
 ```bash
 NAME=app-embroider-3-my-scenario-name-here
 npx ember-cli@latest new $NAME \
-  --skip-git --skip-npm
+  --skip-git --skip-npm --embroider
 ```
