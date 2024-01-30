@@ -52,4 +52,5 @@ fi
 
 
 pnpm install
-
+pnpm lint:fix
+pnpm prettier . --write
