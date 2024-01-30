@@ -77,5 +77,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "lib-no-deps": "workspace:^"
   }
 }
