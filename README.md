@@ -14,11 +14,5 @@ Post script todos:
 - add `"type": "module"` to the library's package.json.
 - add `--test-port 0` to the apps `test:ember` script
 
-### New Example Consuming Apps
-
-In the root of the repo
-```bash
-NAME=app-embroider-3-my-scenario-name-here
-npx ember-cli@latest new $NAME \
-  --skip-git --skip-npm --embroider
-```
+Each example library has its own set of apps to test with, because sometimes 
+type=module crashes the whole app.
