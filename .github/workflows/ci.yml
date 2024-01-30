@@ -1,0 +1,30 @@
+name: CI
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [main]
+
+##############################################################
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # cancel-in-progress: true
+
+permissions:
+  contents: read
+
+##############################################################
+
+jobs:
+  do-the-ci:
+    name: Run examples
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: wyvox/action-setup-pnpm@v3
+      - run: pnpm build
+      - run: pnpm test
+
