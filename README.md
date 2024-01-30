@@ -10,7 +10,7 @@ See: https://github.com/embroider-build/embroider/issues/1773
 
 This'll create a library, and a few apps with varying configs to test against.
 
-Post script todos:
+Post script todos (automated):
 - add `"type": "module"` to the library's package.json.
 - add `--test-port 0` to the apps `test:ember` script
 
