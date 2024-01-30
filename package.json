@@ -5,7 +5,8 @@
   "description": "",
   "scripts": {
     "build": "pnpm --filter './lib*' build",
-    "prepare": "pnpm build"
+    "prepare": "pnpm build",
+    "test": "pnpm --filter './app*' test:ember"
   },
   "keywords": [],
   "author": "NullVoxPopuli",
