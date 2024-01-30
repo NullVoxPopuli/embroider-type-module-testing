@@ -4,16 +4,15 @@ See: https://github.com/embroider-build/embroider/issues/1773
 
 ## Creating new scenarios
 
-### New Libraries
-
-In the root of the repo
 ```bash
-NAME=lib-my-scenario-name-here
-npx ember-cli@latest addon $NAME \
-  --blueprint @embroider/addon-blueprint --addon-only --skip-git --skip-npm
+./create-scenario.sh "name-of-thing"
 ```
 
-And be sure to add `"type": "module"` to the package.json.
+This'll create a library, and a few apps with varying configs to test against.
+
+Post script todos:
+- add `"type": "module"` to the library's package.json.
+- add `--test-port 0` to the apps `test:ember` script
 
 ### New Example Consuming Apps
 
